@@ -25,8 +25,8 @@ if not res then
     ngx.say("connect to mysql error:", err, ",errno:", errno, ",sqlstate:",sqlstate)
     return close_db(db)
 end
-local select_sql = "select * from department"
-select_sql=ngx.escape_uri(select_sql)
+local sql = "select * from department"
+local select_sql=ngx.escape_uri(sql)
 res, err, errno, sqlstate = db:query(select_sql)
 
 if not res then
