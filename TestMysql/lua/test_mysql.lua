@@ -32,4 +32,9 @@ if not res then
     ngx.say("connect to mysql error:", err, ",errno:", errno, ",sqlstate:",sqlstate)
     return close_db(db)
 end
-ngx.say(res)
+for i, row in ipairs(res) do
+   for name, value in pairs(row) do
+     ngx.say("select row ", i, " : ", name, " = ", value, "<br/>")
+   end
+end
+ngx.say("<br/>")
