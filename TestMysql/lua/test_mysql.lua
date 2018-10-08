@@ -26,12 +26,14 @@ if not res then
     return close_db(db)
 end
 local select_sql = "select * from department"
+select_sql=ngx.escape_uri(select_sql)
 res, err, errno, sqlstate = db:query(select_sql)
 
 if not res then
     ngx.say("connect to mysql error:", err, ",errno:", errno, ",sqlstate:",sqlstate)
     return close_db(db)
 end
+-- 以 json 格式发送出去
 cjson=require("cjson")
 local json_data = cjson.encode(res)
 ngx.say(json_data)
