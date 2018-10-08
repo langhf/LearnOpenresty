@@ -33,7 +33,7 @@ if not res then
     return close_db(db)
 end
 cjson=require("cjson")
-local json_data = cjson:encode(res)
+local json_data = cjson.encode(res)
 ngx.say(json_data)
 -- for i, row in ipairs(res) do
 --    for name, value in pairs(row) do
