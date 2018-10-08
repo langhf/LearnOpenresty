@@ -32,5 +32,4 @@ if not res then
     ngx.say("connect to mysql error:", err, ",errno:", errno, ",sqlstate:",sqlstate)
     return close_db(db)
 end
-print("haha")
-print(res)
+ngx.sqy("hhhhhh")
